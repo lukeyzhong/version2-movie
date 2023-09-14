@@ -1,0 +1,127 @@
+body {
+    height: 100vh;
+    background-color: black;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/42df4e1f-bef6-499e-87ff-c990584de314/22121a5e-016d-4e06-a346-14b71657aeab/US-en-20230904-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+}
+
+.main-container {
+    width: 100vw;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.logo {
+    margin-left: 3rem;
+    color: red;
+    font-size: 2rem;
+
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 40rem;
+    height: 45rem;
+    margin-top: 5rem;
+    color: grey;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 30rem;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+.title {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+input {
+    width: 100%;
+    background-color: rgb(77, 77, 77);
+    padding: 1rem 1rem;
+    display: block;
+    border-radius: 3px;
+    border: none;
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    color: white;
+}
+
+.error {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+.checkbox {
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    color: grey;
+}
+
+p {
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 3px;
+    background-color: rgb(205, 33, 7);
+    border: none;
+    height: 50px;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+}
+
+.remember-help-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#help {
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+.remember{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 1rem;
+}
+.signup {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+#signup {
+    cursor: pointer;
+    color: white;
+}
+
+#learnmore {
+    cursor: pointer;
+    color: rgb(88, 128, 238);
+}

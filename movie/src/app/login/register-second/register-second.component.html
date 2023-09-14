@@ -1,0 +1,38 @@
+<app-header-register></app-header-register>
+<main>
+  <div class="container">
+    <p class="step">STEP <label>2</label> OF <label>3</label></p>
+    <p class="title">Create a Username and Add your Tmdb Api_Key</p>
+    <p class="description">Just a few more steps and you're done!</p>
+    <p class="description">We hate paperwork, too.</p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="string"
+        placeholder="Add a username"
+        formControlName="username"
+      />
+      <div *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+        <p class="error">Username is required!</p>
+      </div>
+
+      <label for="api-key">Tmdb Api_Key</label>
+      <input
+        id="api-key"
+        type="string"
+        placeholder="Add a Tmdb Api_Key"
+        formControlName="api_key"
+      />
+      <div *ngIf="!api_key?.valid && (api_key?.dirty || api_key?.touched)">
+        <p class="error" *ngIf="api_key?.errors?.['minlength']">
+          Tmdb Api_Key must be longer than or equal to 15 characters!
+        </p>
+        <p class="error" *ngIf="api_key?.errors?.['required']">
+          Tmdb Api_Key is required!
+        </p>
+      </div>
+      <button type="submit" [disabled]="!form.valid">Next</button>
+    </form>
+  </div>
+</main>

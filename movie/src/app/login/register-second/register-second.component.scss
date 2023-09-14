@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 35rem;
+    margin: 2rem;
+    color: grey;
+}
+
+.step {
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin: 0.2rem .2rem;
+    color: black;
+}
+
+form {
+    margin-top: 2rem;
+}
+
+label {
+    font-size: 1.5rem;
+    color: black;
+}
+
+input {
+    width: 100%;
+    padding: 1rem 1rem;
+    display: block;
+    border-radius: 3px;
+    border: black 1px solid;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+}
+
+.error {
+    font-size: 1.2rem;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    height: 4rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+}
