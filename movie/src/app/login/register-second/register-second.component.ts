@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-second',
@@ -9,8 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class RegisterSecondComponent implements OnInit {
 
   form = new FormGroup({
-    username: new FormControl(),
-    api_key: new FormControl()
+    username: new FormControl('',[Validators.required]),
+    api_key: new FormControl('',[Validators.required])
   })
 
   get username() {

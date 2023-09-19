@@ -3,7 +3,6 @@
   }
   main {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
   }
@@ -53,6 +52,7 @@
 
   button {
     cursor: pointer;
+    background-color: rgb(205, 33, 7);
     width: 100%;
     border-radius: 3px;
     border: none;

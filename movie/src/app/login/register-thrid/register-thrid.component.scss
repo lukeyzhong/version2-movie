@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 800px;
+    margin: 2rem auto;
+}
+
+.step {
+    color: grey;
+    ;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+label {
+    color: black;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin: 3rem auto;
+}
+
+li {
+    list-style-type: none;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.planGrid-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.box {
+    width: 130px;
+    height: 130px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+table {
+    font-size: 1.5rem;
+}
+
+table td {
+    border-top: rgb(217, 216, 216) thin solid;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+}
+
+td {
+    padding-left: 4.5rem;
+}
+
+p {
+    line-height: 100%;
+    margin: 0;
+}
+
+h1 {
+    padding: 1rem;
+}
+
+.step {
+    padding-left: 1rem;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 3px;
+    background-color: rgb(205, 33, 7);
+    border: none;
+    height: 4rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+}
+
+.button-span {
+    display: flex;
+    justify-content: center;
+    margin: 5rem auto;
+}
