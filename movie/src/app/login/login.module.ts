@@ -7,27 +7,39 @@ import { SharedModule } from '../shared/shared.module';
 import { RegisterSecondComponent } from './register-second/register-second.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterThridComponent } from './register-thrid/register-thrid.component';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const routes: Routes = [
+  {
+    path: '',
+    component: RegisterFirstComponent,
+    // children: [
+    //   { path: '1', component: RegisterFirstComponent },
+    //   { path: '2', component: RegisterSecondComponent },
+    //   { path: '3', component: RegisterThridComponent },
+    // ],
+  },
+];
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterFirstComponent,
     RegisterSecondComponent,
-    RegisterThridComponent
+    RegisterThridComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forChild(routes),
   ],
   exports: [
     LoginComponent,
     RegisterFirstComponent,
     RegisterSecondComponent,
-    RegisterThridComponent
-  ]
+    RegisterThridComponent,
+  ],
 })
-export class LoginModule { }
+export class LoginModule {}

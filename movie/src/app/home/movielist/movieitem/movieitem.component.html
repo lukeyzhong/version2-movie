@@ -10,5 +10,6 @@
             <p class="general-info">{{ movie.vote_average | number: '1.1-1'}}</p>
         </div>
         <div><i class="overview">{{ movie.overview | slice:0:100 }}...</i></div>
+        <button (click)="gotoDetails()">Details</button>
     </div>
 </div>

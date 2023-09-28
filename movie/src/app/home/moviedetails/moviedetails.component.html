@@ -1,0 +1,60 @@
+<main class="host" [ngStyle]="{'background-image': 'url(' + background_imge + ')', 'background-size': 'cover'}">
+    <button routerLink="['/movielist']" class="btn-back">
+        <mat-icon svgIcon="favorite">arrow</mat-icon>
+    </button>
+    <div class="container">
+        <section class="movie_info">
+            <div>
+                <p class="movie_name">{{ movie?.title || movie?.original_title }}</p>
+            </div>
+            <p class="movie_info_list">
+                <mat-icon>star</mat-icon>
+                <span style="font-size: 1.6rem">
+                    {{ movie?.vote_average | number: '1.1-1' }}
+                </span>
+                <span>| {{ movie?.popularity?.toFixed(0) }}</span>
+                <span style="margin-left: 2rem">
+                    {{ movie?.runtime }} mins · {{ type }} · {{ movie?.release_date | date: 'yyyy' }}
+                </span>
+            </p>
+            <p class="description">{{ movie?.overview }}</p>
+            <p class="homepage" *ngIf="movie?.homepage">
+                <a mat-raised-button>
+                    Home Page
+                </a>
+            </p>
+
+            <div class="btn_list">
+                <button class="btn_play">
+                    <div class="btn_play_wrap">
+                        <mat-icon>play_arrow</mat-icon><span>PLAY NOW</span>
+                    </div>
+                </button>
+                <button class="btn_trailer" (click)="openDialog()">
+                    <strong>TRAILER</strong>
+                </button>
+            </div>
+        </section>
+        <section class="movie_info">
+            <div class="posters_list">
+                <h1>Poster</h1>
+                <div class="list">
+                    <div class="poster_item" *ngFor="let poster of posters | slice:0:4">
+                        <img [src]="poster.file_path? poster.file_path :  '../../../assets/VGA-no-signal-image.jpeg'" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="actors_list">
+                <h1>Actors</h1>
+                <div class="list">
+                    <div class="actor_item" *ngFor="let actor of actors | slice:0:10">
+                        <div>
+                            <img
+                                [src]="actor.profile_path? actor.profile_path :  '../../../assets/people_image.png'" />
+                            <div style="text-align: center">{{ actor.name }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

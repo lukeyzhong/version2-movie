@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { HeaderRegisterComponent } from './header-register/header-register.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,7 +12,8 @@ import { HeaderRegisterComponent } from './header-register/header-register.compo
     HeaderRegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

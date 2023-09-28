@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MovieService {
-  
+  movieImgUrl = "https://image.tmdb.org/t/p";
   baseUrl = "https://api.themoviedb.org/3/discover/movie/?";
   key = "52f2c3eb2e2dc80c673eb869ce50556a";
 
@@ -15,6 +15,10 @@ export class MovieService {
   }
 
   constructor(private http: HttpClient) { }
+
+  getMovieImagePath(path: string, quality: string): string {
+    return [this.movieImgUrl, quality, path].join('/');
+  }
 
   getMovies() {
     const keystr = Object.entries(this.keys).reduce((acc, [key, val]) => {
