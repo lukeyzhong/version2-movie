@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoginModule } from './login/login.module';
     HomeModule,
     SharedModule,
     LoginModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

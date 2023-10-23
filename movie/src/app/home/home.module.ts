@@ -39,7 +39,7 @@ const routes: Routes = [
     MatCardModule,
     MatDialogModule,
     RouterModule.forChild(routes),
-    YouTubePlayerModule
+    YouTubePlayerModule,
   ],
   exports: [
     HomePageComponent,

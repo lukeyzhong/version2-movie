@@ -32,10 +32,11 @@ export class MoviedetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(param => {
+      console.log(param);
       this.id = Number(param.get('id'));
     })
 
-    this.getMovieSource();
+    this.getMovieDetails();
   }
 
 
@@ -55,32 +56,36 @@ export class MoviedetailsComponent implements OnInit {
     this.currentDialogRef = dialogRef;
   }
   
-  private getMovieSource() {
-    this.movie = this.activatedRoute.snapshot.data['movie']; //movie detail info
-    this.type = this.movie.genres?.map(({ }) => name).join(', ');
+  private getMovieDetails() {
+    this.movieService.getMovieDetails(this.id).subscribe((data: any) => {
+          this.movie = data;
+        });
+    // this.movie = this.activatedRoute.snapshot.data['movie']; //movie detail info
+    // console.log(this.movie);
+    // this.type = this.movie.genres?.map(({ }) => name).join(', ');
 
-    if(this.movie.backdrop_path){
-      this.background_imge = this.movieService.getMovieImagePath(this.movie.backdrop_path,'original');
-      this.hasBackdrop_img = true;
-    } else {
-      this.background_imge = "";
-      this.hasBackdrop_img = false;
-    }
+    // if(this.movie.backdrop_path){
+    //   this.background_imge = this.movieService.getMovieImagePath(this.movie.backdrop_path,'original');
+    //   this.hasBackdrop_img = true;
+    // } else {
+    //   this.background_imge = "";
+    //   this.hasBackdrop_img = false;
+    // }
 
-    const videos = this.activatedRoute.snapshot.data['videos'];
-    if (videos?.results) {
-      this.movieVideos = [...videos.results];
-    }
+    // const videos = this.activatedRoute.snapshot.data['videos'];
+    // if (videos?.results) {
+    //   this.movieVideos = [...videos.results];
+    // }
 
-    this.actors = this.activatedRoute.snapshot.data['cast'].map((actor: any): any => {
-      const profile_path = actor.profile_path? this.movieService.getMovieImagePath(actor.profile_path, 'w500') : '';
-      return {...actor, profile_path};
-    })
+    // this.actors = this.activatedRoute.snapshot.data['cast'].map((actor: any): any => {
+    //   const profile_path = actor.profile_path? this.movieService.getMovieImagePath(actor.profile_path, 'w500') : '';
+    //   return {...actor, profile_path};
+    // })
 
-    this.posters = this.activatedRoute.snapshot.data['posters'].map((backdrop: any): any => {
-      const file_path = backdrop.file_path? this.movieService.getMovieImagePath(backdrop.file_path, 'w500') : '';
-      return {...backdrop, file_path};
-    })
+    // this.posters = this.activatedRoute.snapshot.data['posters'].map((backdrop: any): any => {
+    //   const file_path = backdrop.file_path? this.movieService.getMovieImagePath(backdrop.file_path, 'w500') : '';
+    //   return {...backdrop, file_path};
+    // })
 
   }
 
