@@ -28,17 +28,45 @@ export class MoviedetailsComponent implements OnInit {
     private movieService: MovieService,
     private readonly activatedRoute: ActivatedRoute,
     private dialog: MatDialog
-    ) {}
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(param => {
-      console.log(param);
+    this.activatedRoute.paramMap.subscribe((param) => {
+      // console.log(param);
       this.id = Number(param.get('id'));
-    })
+    });
 
     this.getMovieDetails();
-  }
 
+    this.movieService
+      .getMovieDetails(this.id, 'casts')
+      .subscribe((data: any) => {
+        this.actors =
+          // console.log(data.cast);
+          data.cast.map((actor: any): any => {
+            const profile_path = actor.profile_path
+              ? this.movieService.getMovieImagePath(actor.profile_path, 'w500')
+              : '';
+            return { ...actor, profile_path };
+          });
+      });
+
+      this.movieService
+      .getMovieDetails(this.id, 'images')
+      .subscribe((data: any) => {
+        console.log(data.backdrops);
+        
+        this.posters =
+          data.backdrops.map((image: any): any => {
+            const file_path = image.file_path
+              ? this.movieService.getMovieImagePath(image.file_path, 'w500')
+              : '';
+            return { ...image, file_path };
+          });
+      });
+
+
+  }
 
   openDialog(): void {
     const dialogConfig = new MatDialogConfig();
@@ -55,38 +83,32 @@ export class MoviedetailsComponent implements OnInit {
     });
     this.currentDialogRef = dialogRef;
   }
-  
+
   private getMovieDetails() {
     this.movieService.getMovieDetails(this.id).subscribe((data: any) => {
-          this.movie = data;
-        });
-    // this.movie = this.activatedRoute.snapshot.data['movie']; //movie detail info
-    // console.log(this.movie);
-    // this.type = this.movie.genres?.map(({ }) => name).join(', ');
+      this.movie = data;
+      this.type = this.movie.genres
+        ?.map((genre: { name: any }) => genre.name)
+        .join(', ');
+      console.log(this.movie);
 
-    // if(this.movie.backdrop_path){
-    //   this.background_imge = this.movieService.getMovieImagePath(this.movie.backdrop_path,'original');
-    //   this.hasBackdrop_img = true;
-    // } else {
-    //   this.background_imge = "";
-    //   this.hasBackdrop_img = false;
-    // }
+      if (this.movie.backdrop_path) {
+        this.background_imge = this.movieService.getMovieImagePath(
+          this.movie.backdrop_path,
+          'original'
+        );
+        this.hasBackdrop_img = true;
+      } else {
+        this.background_imge = '';
+        this.hasBackdrop_img = false;
+      }
 
-    // const videos = this.activatedRoute.snapshot.data['videos'];
-    // if (videos?.results) {
-    //   this.movieVideos = [...videos.results];
-    // }
 
-    // this.actors = this.activatedRoute.snapshot.data['cast'].map((actor: any): any => {
-    //   const profile_path = actor.profile_path? this.movieService.getMovieImagePath(actor.profile_path, 'w500') : '';
-    //   return {...actor, profile_path};
-    // })
-
-    // this.posters = this.activatedRoute.snapshot.data['posters'].map((backdrop: any): any => {
-    //   const file_path = backdrop.file_path? this.movieService.getMovieImagePath(backdrop.file_path, 'w500') : '';
-    //   return {...backdrop, file_path};
-    // })
-
+      // this.posters = this.activatedRoute.snapshot.data['posters'].map((backdrop: any): any => {
+      //   const file_path = backdrop.file_path? this.movieService.getMovieImagePath(backdrop.file_path, 'w500') : '';
+      //   return {...backdrop, file_path};
+      // })
+    });
   }
 
   ngOnDestroy(): void {
@@ -94,7 +116,4 @@ export class MoviedetailsComponent implements OnInit {
       this.currentDialogRef.close();
     }
   }
-
 }
-
-  

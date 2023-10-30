@@ -1,7 +1,7 @@
 <main class="host" [ngStyle]="{'background-image': 'url(' + background_imge + ')', 'background-size': 'cover'}">
-    <button routerLink="['/movielist']" class="btn-back">
-        <mat-icon class="back-mat-icon">arrow</mat-icon>
-    </button>
+    <!-- <button routerLink="/movie-list" class="btn-back">
+        <mat-icon class="back-mat-icon">arrow_back</mat-icon>
+    </button> -->
     <div class="container">
         <section class="movie_info">
             <div>
@@ -39,7 +39,7 @@
             <div class="posters_list">
                 <h1>Poster</h1>
                 <div class="list">
-                    <div class="poster_item" *ngFor="let poster of posters | slice:0:4">
+                    <div class="poster_item" *ngFor="let poster of posters | slice: 0: 2 ">
                         <img [src]="poster.file_path? poster.file_path :  '../../../assets/VGA-no-signal-image.jpeg'" />
                     </div>
                 </div>
@@ -48,7 +48,7 @@
             <div class="actors_list">
                 <h1>Actors</h1>
                 <div class="list">
-                    <div class="actor_item" *ngFor="let actor of actors | slice:0:10">
+                    <div class="actor_item" *ngFor="let actor of actors | slice: 0: 6">
                         <div>
                             <img
                                 [src]="actor.profile_path? actor.profile_path :  '../../../assets/people_image.png'" />
