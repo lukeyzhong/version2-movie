@@ -1,13 +1,16 @@
-
-
-  <main (onscroll)="onScroll()">
-    <div class="movie_list_container">
-        <div class="movie_list">
-            <div class="movie-item" *ngFor="let movie of movies">
-                <app-movieitem [movie]="movie"></app-movieitem>
-            </div>
-            <div class="infinite_scroll_mark" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500"
-            (scrolled)="onScroll()"></div>
-        </div>
+<main (onscroll)="onScroll()">
+  <div class="movie_list_container">
+    <div class="movie_list">
+      <div class="movie-item" *ngFor="let movie of movies">
+        <app-movieitem [movie]="movie"></app-movieitem>
+      </div>
+      <div
+        class="infinite_scroll_mark"
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="500"
+        (scrolled)="onScroll()"
+      ></div>
     </div>
+  </div>
 </main>

@@ -54,7 +54,7 @@ export class MoviedetailsComponent implements OnInit {
       this.movieService
       .getMovieDetails(this.id, 'images')
       .subscribe((data: any) => {
-        console.log(data.backdrops);
+        // console.log(data.backdrops);
         
         this.posters =
           data.backdrops.map((image: any): any => {
@@ -90,7 +90,7 @@ export class MoviedetailsComponent implements OnInit {
       this.type = this.movie.genres
         ?.map((genre: { name: any }) => genre.name)
         .join(', ');
-      console.log(this.movie);
+      // console.log(this.movie);
 
       if (this.movie.backdrop_path) {
         this.background_imge = this.movieService.getMovieImagePath(

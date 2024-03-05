@@ -8,9 +8,9 @@ import { map } from 'rxjs';
 export class MovieService {
   movieImgUrl = 'https://image.tmdb.org/t/p';
   baseUrl = 'https://api.themoviedb.org/3';
-  discoverPath = '/discover/movie/?';
+  discoverPath = '/discover/movie?';
   detailsPath = '/movie/';
-  key = '52f2c3eb2e2dc80c673eb869ce50556a';
+  key = '1cc588d3100019cae539cca12aa6e760';
 
   keys = {
     api_key: this.key,

@@ -32,7 +32,7 @@ export class TrailerComponent implements OnInit {
   }
 
   switchVideo(direction: string) {
-    console.log("movieVideo", this.movieVideos);
+    // console.log("movieVideo", this.movieVideos);
     if (direction === 'left' && this.movieVideos.length) {
       const removedVideo: any = this.movieVideos.shift() as any; 
       this.movieVideos.push(removedVideo); //add to the tail
