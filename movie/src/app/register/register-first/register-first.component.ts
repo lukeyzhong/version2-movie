@@ -7,6 +7,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, debounceTime, map } from 'rxjs';
 
 @Component({
@@ -25,7 +26,8 @@ export class RegisterFirstComponent implements OnInit {
     return this.form.get('password');
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -59,5 +61,7 @@ export class RegisterFirstComponent implements OnInit {
     );
   };
 
-  onSubmit() {}
+  onSubmit() {
+    this.router.navigate([''])
+  }
 }

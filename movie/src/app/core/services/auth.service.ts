@@ -15,7 +15,7 @@ export class AuthService {
     private router: Router) {}
 
   onSignup(userInfo: any) {
-    return this.http.post(this.apiUrl + 'auth/' + this.signUp, userInfo);
+    return this.http.post(this.apiUrl + '/auth' + '/' + this.signUp, userInfo);
   }
 
   onLogin(userInfo: any) {
