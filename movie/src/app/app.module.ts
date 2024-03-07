@@ -8,6 +8,8 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { MatIconModule } from '@angular/material/icon';
+import { RegisterModule } from './register/register.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeModule,
     SharedModule,
     LoginModule,
-    MatIconModule
+    RegisterModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

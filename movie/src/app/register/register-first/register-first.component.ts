@@ -62,6 +62,6 @@ export class RegisterFirstComponent implements OnInit {
   };
 
   onSubmit() {
-    this.router.navigate([''])
+    this.router.navigate(['register/secondpage']);
   }
 }

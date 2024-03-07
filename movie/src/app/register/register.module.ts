@@ -10,24 +10,28 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
-    path: '',
-    component: RegisterFirstComponent,
+    path: 'register',
     children: [
-      { path: '1', component: RegisterFirstComponent },
-      { path: '2', component: RegisterSecondComponent },
-      { path: '3', component: RegisterThridComponent },
+      { path: 'firstpage', component: RegisterFirstComponent },
+      { path: 'secondpage', component: RegisterSecondComponent },
+      { path: 'thirdpage', component: RegisterThridComponent },
     ],
   },
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RegisterFirstComponent,
+    RegisterSecondComponent,
+    RegisterThridComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
     RouterModule.forChild(routes),
-  ]
+  ],
+  exports: [RouterModule]
 })
-export class RegisterModule { }
+export class RegisterModule {}

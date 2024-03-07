@@ -20,6 +20,7 @@ import { RouterModule, Routes } from '@angular/router';
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
+    RouterModule
   ],
   exports: [
     LoginComponent,
