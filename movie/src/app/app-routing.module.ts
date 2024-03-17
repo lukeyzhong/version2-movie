@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MovielistComponent } from './home/movielist/movielist.component';
-import { MoviedetailsComponent } from './home/moviedetails/moviedetails.component';
 import { LoginComponent } from './login/login/login.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
 
 const routes: Routes = [
-  {path: 'home', loadChildren: () => import('./home/home.module').then((_) => (_.HomeModule))},
+  // {path: 'home', loadChildren: () => import('./home/home.module').then((m) => (m.HomeModule))},
+  {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', loadChildren: () => import('./register/register.module').then((_) => (_.RegisterModule))},
-  {path: 'movielist', component: MovielistComponent},
-  {path: 'movielist/:id', component: MoviedetailsComponent},
+  {path: 'register', loadChildren: () => import('./register/register.module').then((m) => (m.RegisterModule))},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 

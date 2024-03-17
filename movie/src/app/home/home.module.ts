@@ -15,13 +15,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 const routes: Routes = [
   {
     path: '',
-    component: MovielistComponent
-    // children: [
-    //   { path: '1', component: RegisterFirstComponent },
-    //   { path: '2', component: RegisterSecondComponent },
-    //   { path: '3', component: RegisterThridComponent },
-    // ],
+    component: HomePageComponent,
   },
+  { path: 'movielist', component: MovielistComponent },
+  { path: 'movielist/:id', component: MoviedetailsComponent },
 ];
 
 @NgModule({
