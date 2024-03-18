@@ -9,8 +9,8 @@
         </p>
       </div>
       <div class="email">
-        <input type="text" placeholder="Email address" />
-        <button>Get Started ></button>
+        <input [(ngModel)]="email" type="text" placeholder="Email address" />
+        <button (click)="NagivateToSignup()">Get Started ></button>
       </div>
     </div>
   </section>
@@ -32,8 +32,15 @@
           class="first-pic"
         />
 
-        <video class="first-gif" autoplay  loop muted  preload playsinline
-        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"></video>
+        <video
+          class="first-gif"
+          autoplay
+          loop
+          muted
+          preload
+          playsinline
+          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+        ></video>
       </div>
     </div>
 
@@ -88,8 +95,15 @@
           srcset=""
           class="third-pic"
         />
-        <video class="third-gif" autoplay  loop muted  preload playsinline
-        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"></video>
+        <video
+          class="third-gif"
+          autoplay
+          loop
+          muted
+          preload
+          playsinline
+          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+        ></video>
       </div>
     </div>
 
@@ -155,5 +169,5 @@
       <input type="text" placeholder="Email address" />
       <button>Get Started ></button>
     </div>
-</section>
+  </section>
 </body>

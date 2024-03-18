@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
     MatDialogModule,
     RouterModule.forChild(routes),
     YouTubePlayerModule,
+    SharedModule
   ],
   exports: [
     HomePageComponent,
