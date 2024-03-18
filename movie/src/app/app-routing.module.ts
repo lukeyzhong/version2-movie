@@ -4,10 +4,9 @@ import { LoginComponent } from './login/login/login.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 
 const routes: Routes = [
-  // {path: 'home', loadChildren: () => import('./home/home.module').then((m) => (m.HomeModule))},
   {path: 'home', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', loadChildren: () => import('./register/register.module').then((m) => (m.RegisterModule))},
+  {path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 

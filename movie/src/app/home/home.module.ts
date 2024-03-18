@@ -13,10 +13,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomePageComponent,
-  },
+  { path: 'home', component: HomePageComponent },
   { path: 'movielist', component: MovielistComponent },
   { path: 'movielist/:id', component: MoviedetailsComponent },
 ];

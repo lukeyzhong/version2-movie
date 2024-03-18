@@ -17,21 +17,21 @@
         <p class="error">Username is required!</p>
       </div>
 
-      <label for="api-key">Tmdb Api_Key</label>
+      <!-- <label for="api-key">Tmdb Api_Key</label>
       <input
         id="api-key"
         type="string"
         placeholder="Add a Tmdb Api_Key"
         formControlName="api_key"
-      />
-      <div *ngIf="!api_key?.valid && (api_key?.dirty || api_key?.touched)">
+      /> -->
+      <!-- <div *ngIf="!api_key?.valid && (api_key?.dirty || api_key?.touched)">
         <p class="error" *ngIf="api_key?.errors?.['minlength']">
           Tmdb Api_Key must be longer than or equal to 15 characters!
         </p>
         <p class="error" *ngIf="api_key?.errors?.['required']">
           Tmdb Api_Key is required!
         </p>
-      </div>
+      </div> -->
       <button type="submit" [disabled]="!form.valid">Next</button>
     </form>
   </div>

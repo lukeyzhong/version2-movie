@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { response } from 'express';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-register-thrid',
@@ -14,43 +17,48 @@ export class RegisterThridComponent implements OnInit {
   plans_watch: string[] = ['✓', '✓', '✓'];
   plans_downloads: string[] = ['-', '✓', '✓'];
   selectedIndex = 0;
-  // selectedRole: UserRole = UserRole.USER;
+  selectedRole!: string;
   slectedTextColor = 'rgb(205, 33, 7)';
   unslectedTextColor = 'rgb(152, 143, 143)';
 
-  constructor() {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
   selectedPlan(index: number) {
-    // switch (index) {
-    //   case 0:
-    //     this.selectedRole = UserRole.USER;
-    //     break;
-    //   case 1:
-    //     this.selectedRole = UserRole.SUPERUSER;
-    //     break;
-    //   case 2:
-    //     this.selectedRole = UserRole.ADMIN;
-    //     break;
-    // }
+    switch (index) {
+      case 0:
+        this.selectedRole = 'USER';
+        break;
+      case 1:
+        this.selectedRole = 'SUPERUSER';
+        break;
+      case 2:
+        this.selectedRole = 'ADMIN';
+        break;
+    }
   }
 
   sendSignUp() {
-  //   this.selectedPlan(this.selectedIndex);
-
-  //   const user = this.authService.userValue;
-  //   if (!user.jwtToken) {
-  //     console.log('sigining up!');
-  //     this.authService.addUserInfo({ role: this.selectedRole });
-  //     this.authService.signUp().subscribe();
-  //   } else {
-  //     console.log('updating role!', this.selectedRole);
-  //     this.authService
-  //       .upgradePermission({ role: this.selectedRole })
-  //       .subscribe();
-  //   }
-  // }
-}
-
+    //   this.selectedPlan(this.selectedIndex);
+    //   const user = this.authService.userValue;
+    //   if (!user.jwtToken) {
+    //     this.authService.addUserInfo({ role: this.selectedRole });
+    //     this.authService.signUp().subscribe();
+    //   } else {
+    //     this.authService
+    //       .upgradePermission({ role: this.selectedRole })
+    //       .subscribe();
+    //   }
+    this.selectedPlan(this.selectedIndex);
+    this.authService.regObj = {...this.authService.regObj, role: this.selectedRole, "tmdb_key": "stringstringstr"}
+    this.authService.onSignup(this.authService.regObj).subscribe(response => {
+      console.log(response)
+    });
+    
+  }
 }

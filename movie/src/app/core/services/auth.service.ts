@@ -10,6 +10,7 @@ export class AuthService {
   apiUrl: string = 'http://localhost:4231';
   signUp: string = 'signup';
   LogIn: string = 'signin';
+  regObj = {};
 
   constructor(private http: HttpClient, 
     private router: Router) {}

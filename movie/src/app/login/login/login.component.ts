@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -24,9 +25,14 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, 
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  NavigateToSignup(){
+    this.router.navigate(['/register/firstpage']);
   }
 
   onSubmit() {
@@ -36,5 +42,4 @@ export class LoginComponent implements OnInit {
     }
     this.authService.onLogin(this.userObj);
   }
-
 }

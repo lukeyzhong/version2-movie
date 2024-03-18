@@ -5,14 +5,13 @@ import { RegisterSecondComponent } from './register-second/register-second.compo
 import { RegisterThridComponent } from './register-thrid/register-thrid.component';
 
 const routes: Routes = [
-  {
-    path: 'register',
-    children: [
-      { path: 'firstpage', component: RegisterFirstComponent },
-      { path: 'secondpage', component: RegisterSecondComponent },
-      { path: 'thirdpage', component: RegisterThridComponent },
-    ],
-  },
+    {  path: '',
+        children :[
+            { path: 'firstpage', component: RegisterFirstComponent },
+            { path: 'secondpage', component: RegisterSecondComponent },
+            { path: 'thirdpage', component: RegisterThridComponent },
+        ]
+    },
 ];
 
 @NgModule({

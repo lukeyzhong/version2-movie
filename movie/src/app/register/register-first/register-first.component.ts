@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, debounceTime, map } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-register-first',
@@ -27,7 +28,8 @@ export class RegisterFirstComponent implements OnInit {
   }
 
   constructor(private http: HttpClient,
-    private router: Router) {}
+    private router: Router,
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -63,5 +65,7 @@ export class RegisterFirstComponent implements OnInit {
 
   onSubmit() {
     this.router.navigate(['register/secondpage']);
+    this.authService.regObj = {...this.authService.regObj, email: this.email?.value, password: this.password?.value};
+    console.log(this.authService.regObj);
   }
 }
