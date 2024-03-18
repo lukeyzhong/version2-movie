@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { response } from 'express';
+import { LoginResponse } from '../interfaces/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,13 +19,8 @@ export class AuthService {
     return this.http.post(this.apiUrl + '/auth' + '/' + this.signUp, userInfo);
   }
 
-  onLogin(userInfo: any) {
+  onLogin(userInfo: LoginResponse) {
     return this.http
-      .post(this.apiUrl + '/auth' + '/' + this.LogIn, userInfo).subscribe(
-        response => {
-          this.router.navigate(['/movielist']);
-        }
-      );
-    
+      .post<LoginResponse>(this.apiUrl + '/auth' + '/' + this.LogIn, userInfo);
   }
 }

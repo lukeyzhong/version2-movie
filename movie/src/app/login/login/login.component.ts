@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginResponse } from 'src/app/core/interfaces/user.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userObj = {};
+  userObj: any = {};
   loggedinMsg: string =  "";
 
   loginForm = new FormGroup({
@@ -40,6 +41,12 @@ export class LoginComponent implements OnInit {
       email: this.email?.value,
       password: this.password?.value
     }
-    this.authService.onLogin(this.userObj);
+    this.authService.onLogin(this.userObj).subscribe(
+      (response: LoginResponse) => {
+        const token = response.accessToken;
+        localStorage.setItem('jwt_token', token)
+        this.router.navigate(['/movielist']);
+      }
+    );
   }
 }
