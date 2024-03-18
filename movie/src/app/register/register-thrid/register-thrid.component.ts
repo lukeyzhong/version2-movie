@@ -59,6 +59,7 @@ export class RegisterThridComponent implements OnInit {
     this.authService.onSignup(this.authService.regObj).subscribe(response => {
       console.log(response)
     });
-    
+    this.router.navigate(['login']);
+
   }
 }
