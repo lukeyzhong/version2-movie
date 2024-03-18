@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginResponse } from 'src/app/core/interfaces/user.model';
@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private authService: AuthService, 
-    private router: Router) { }
+    private router: Router,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -44,8 +45,12 @@ export class LoginComponent implements OnInit {
     this.authService.onLogin(this.userObj).subscribe(
       (response: LoginResponse) => {
         const token = response.accessToken;
-        localStorage.setItem('jwt_token', token)
+        localStorage.setItem('jwt_token', token);
+        this.authService.setJwtToken(token);
         this.router.navigate(['/movielist']);
+      },
+      error => {
+        console.error('Login failed:', error);
       }
     );
   }

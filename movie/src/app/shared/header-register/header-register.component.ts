@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-register.component.scss']
 })
 export class HeaderRegisterComponent implements OnInit {
+  loggedIn: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
+
 
 }

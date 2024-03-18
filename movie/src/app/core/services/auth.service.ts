@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginResponse } from '../interfaces/user.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,14 @@ export class AuthService {
   LogIn: string = 'signin';
   regObj = {};
 
-  constructor(private http: HttpClient, 
-    private router: Router) {}
+  private jwtTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  jwtToken$: Observable<string | null> = this.jwtTokenSubject.asObservable();
+
+  setJwtToken(token: string| null) {
+    this.jwtTokenSubject.next(token);
+  }
+
+  constructor(private http: HttpClient) {}
 
   onSignup(userInfo: any) {
     return this.http.post(this.apiUrl + '/auth' + '/' + this.signUp, userInfo);

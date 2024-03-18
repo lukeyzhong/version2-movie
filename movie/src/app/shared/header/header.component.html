@@ -1,16 +1,22 @@
 <header>
-    <div class="navbar">
-        <div class="logo">
-            <h1 [routerLink]="['/home']">NETFLIX</h1>
-        </div>
-        <div class="rightside">
-            <select>
-                <summary>English</summary>
-                <option>English</option>
-                <option>Español</option>
-            </select>
-            <button [routerLink]="['/login']">Sign in</button>
-        </div>
+  <div class="navbar">
+    <div class="logo">
+      <h1 [routerLink]="['/home']">NETFLIX</h1>
     </div>
+    <div class="rightside">
+      <select>
+        <summary>English</summary>
+        <option>English</option>
+        <option>Español</option>
+      </select>
+      <div *ngIf="!jwtToken; else LogOut">
+        <button
+        [routerLink]="['/login']">Sign In</button>
+      </div>
+      <ng-template #LogOut>
+        <button (click)="OnLogOut()"
+        >Log Out</button>
+      </ng-template>
+    </div>
+  </div>
 </header>
-
