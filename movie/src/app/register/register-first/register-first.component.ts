@@ -34,7 +34,7 @@ export class RegisterFirstComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl(
-        '',
+        this.authService.regObj?.email,
         [Validators.required, Validators.email],
         [this.checkEmail]
       ),

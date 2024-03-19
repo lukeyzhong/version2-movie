@@ -10,7 +10,7 @@ export class AuthService {
   apiUrl: string = 'http://localhost:4231';
   signUp: string = 'signup';
   LogIn: string = 'signin';
-  regObj = {};
+  regObj: any = {};
 
   private jwtTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   jwtToken$: Observable<string | null> = this.jwtTokenSubject.asObservable();

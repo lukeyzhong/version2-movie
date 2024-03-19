@@ -9,7 +9,27 @@
         </p>
       </div>
       <div class="email">
-        <input [(ngModel)]="email" type="text" placeholder="Email address" />
+        <form #form="ngForm">
+          <input
+            [(ngModel)]="email"
+            name="email"
+            #emailInput="ngModel"
+            type="text"
+            placeholder="Email address"
+            required
+            email
+          />
+          <!-- Display error message if email is not valid -->
+          <div
+            *ngIf="
+              emailInput.invalid && (emailInput.dirty || emailInput.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+            <div *ngIf="emailInput.errors?.['email']">Invalid email format.</div>
+          </div>
+        </form>
         <button (click)="NagivateToSignup()">Get Started ></button>
       </div>
     </div>
