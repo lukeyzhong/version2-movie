@@ -12,11 +12,12 @@ import { MatCardModule } from '@angular/material/card';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from '../shared/shared.module';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'movielist', component: MovielistComponent },
-  { path: 'movielist/:id', component: MoviedetailsComponent },
+  { path: 'movielist', component: MovielistComponent, canActivate: [AuthGuard] },
+  { path: 'movielist/:id', component: MoviedetailsComponent,  canActivate: [AuthGuard] },
 ];
 
 @NgModule({
