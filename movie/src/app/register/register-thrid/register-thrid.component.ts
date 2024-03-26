@@ -55,7 +55,8 @@ export class RegisterThridComponent implements OnInit {
     //       .subscribe();
     //   }
     this.selectedPlan(this.selectedIndex);
-    this.authService.regObj = {...this.authService.regObj, role: this.selectedRole, "tmdb_key": "stringstringstr"}
+    this.authService.regObj = {...this.authService.regObj, role: this.selectedRole, tmdb_key: "stringstringstring"}
+    console.log(this.authService.regObj);
     this.authService.onSignup(this.authService.regObj).subscribe(response => {
       console.log(response)
     });

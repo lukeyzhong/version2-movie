@@ -7,7 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  apiUrl: string = 'http://localhost:4231';
+  // apiUrl: string = 'http://localhost:4231';
+  apiUrl: string = 'http://localhost:3241';
   signUp: string = 'signup';
   LogIn: string = 'signin';
   regObj: any = {};

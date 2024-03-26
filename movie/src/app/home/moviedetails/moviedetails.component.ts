@@ -36,7 +36,7 @@ export class MoviedetailsComponent implements OnInit {
       this.id = Number(param.get('id'));
     });
 
-    this.getMovieDetails();
+    this.onMovieDetails();
 
     this.movieService
       .getMovieDetails(this.id, 'casts')
@@ -84,7 +84,7 @@ export class MoviedetailsComponent implements OnInit {
     this.currentDialogRef = dialogRef;
   }
 
-  private getMovieDetails() {
+  private onMovieDetails() {
     this.movieService.getMovieDetails(this.id).subscribe((data: any) => {
       this.movie = data;
       this.type = this.movie.genres
